@@ -4,9 +4,29 @@
 
 <section id="feed-posts">
         <h4>Posts</h4>
-        <form action="" id="new-post-form" method="POST">
+        <form action="/posts/create" id="new-post-form" method="POST">
             <textarea name="content" cols="30" rows="4" placeholder="Heya! Your posts here..."></textarea>
             <input type="submit" value="POST">
 
         </form>
+
+        <div id="posts-list-controller">
+            <ul>
+                <% for(post of posts){%>
+
+                    <li>
+                        <p>
+                        <%= post.content %> 
+                        <br>
+                        <small>
+                            <%= post.user.name %> 
+                        </small>
+                    </p>
+                    </li>
+                    
+
+               <% } %> 
+            </ul>
+        </div>
+    
 </section>

@@ -4,6 +4,6 @@ const router = express.Router();
 
 const newPosts = require('../controllers/postController')
 
-router.get('/newPosts', newPosts.posts);
+router.post('/create', newPosts.create);
 
 module.exports = router;
