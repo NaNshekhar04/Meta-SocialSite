@@ -10,8 +10,14 @@ module.exports.home = function(req, res){
     //     });
     // })
     // Populate the user for each post
-    Post.find({}).populate('user').exec(function(err, posts){
-        // console.log(posts.user.name);
+    Post.find({})
+    .populate('user')
+    .populate({
+        path: 'comments',
+        populate:'user'
+    })
+    .exec(function(err, posts){
+    
         res.render('home',{
             title: "Meta | Home",
             posts: posts
